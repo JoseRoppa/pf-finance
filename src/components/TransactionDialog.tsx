@@ -34,10 +34,10 @@ export function TransactionDialog({ trigger, initial }: { trigger: ReactNode; in
     e.preventDefault();
     const err: Record<string, string> = {};
     const value = Number(amount.replace(",", "."));
-    if (!description.trim()) err.description = "Informe a descrição.";
-    if (!amount || isNaN(value) || value <= 0) err.amount = "Informe um valor maior que zero.";
-    if (!category) err.category = "Selecione uma categoria.";
-    if (!date) err.date = "Informe a data.";
+    if (!description.trim()) err["description"] = "Informe a descrição.";
+    if (!amount || isNaN(value) || value <= 0) err["amount"] = "Informe um valor maior que zero.";
+    if (!category) err["category"] = "Selecione uma categoria.";
+    if (!date) err["date"] = "Informe a data.";
     setErrors(err);
     if (Object.keys(err).length) return;
     const data = { description: description.trim(), amount: value, type, category: category as Category, date };

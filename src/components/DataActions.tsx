@@ -11,7 +11,7 @@ import { toCSV } from "@/lib/finance";
 export function DataActions() {
   const { transactions, loadSample, clearAll } = useTransactions();
   const exportCsv = () => {
-    if (!transactions.length) return toast.error("Não há transações para exportar.");
+    if (!transactions.length) { toast.error("Não há transações para exportar."); return; }
     const blob = new Blob(["\uFEFF" + toCSV(transactions)], { type: "text/csv;charset=utf-8" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);

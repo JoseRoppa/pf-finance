@@ -33,7 +33,7 @@ export function currentMonthKey(now = new Date()) {
 }
 
 export function prevMonthKey(key: string) {
-  const [y, m] = key.split("-").map(Number);
+  const [y = 0, m = 1] = key.split("-").map(Number);
   const d = new Date(y, m - 2, 1);
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
 }
@@ -63,7 +63,7 @@ export function lastMonths(txs: Transaction[], n: number, now = new Date()) {
   let key = currentMonthKey(now);
   for (let i = 0; i < n; i++) {
     const t = totals(byMonth(txs, key));
-    const [y, m] = key.split("-").map(Number);
+    const [y = 0, m = 1] = key.split("-").map(Number);
     const label = new Date(y, m - 1, 1).toLocaleDateString("pt-BR", { month: "short" }).replace(".", "");
     out.unshift({ key, label, receitas: t.income, despesas: t.expense });
     key = prevMonthKey(key);
