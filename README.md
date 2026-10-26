@@ -1,29 +1,24 @@
-# Welcome to your Lovable project
+# SaldoFácil
 
-This project was built with [Lovable](https://lovable.dev).
+Gerenciador financeiro pessoal que roda 100% no navegador.
 
-## Build with Lovable
-
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+## Instalação
+```bash
+bun install   # ou npm install
+bun run dev   # http://localhost:8080
 ```
 
-## Built with
+## Funcionalidades
+- **Dashboard**: saldo total, receitas/despesas do mês, gráfico de barras (6 meses), pizza por categoria e últimas transações.
+- **Transações**: adicionar, editar, excluir; filtros por categoria, tipo e período; validação de campos.
+- **Insights Financeiros**: maior categoria de gasto, % da renda comprometida, comparação com o mês anterior, recomendações e explicação dos cálculos — tudo por regras locais, sem IA externa.
+- **Dados**: carregar exemplos, apagar tudo (com confirmação), exportar CSV, salvamento automático.
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+## Tecnologias
+React + TypeScript, TanStack Start, Tailwind CSS, shadcn/ui, Recharts, Lucide.
+
+## Limitações do armazenamento local
+- Os dados ficam apenas neste navegador/dispositivo (chave `saldofacil:transactions`).
+- Limpar dados do navegador ou usar janela anônima apaga/isola as transações.
+- Não há sincronização entre dispositivos; use a exportação CSV como backup.
+- Limite típico de ~5 MB por site.
